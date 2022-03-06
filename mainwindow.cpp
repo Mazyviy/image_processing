@@ -225,7 +225,7 @@ void MainWindow::on_buttonSearch_clicked()
                                     int g2 = qGreen(img.pixel(ii, jj));
                                     int b2 = qBlue(img.pixel(ii, jj));
 
-                                    if(abs(r2-r1)+abs(g2-g1)+abs(b2-b1)<50) count_max++;
+                                    if(abs(r2-r1)+abs(g2-g1)+abs(b2-b1)<70) count_max++;
                                 }
                             }
                         }
