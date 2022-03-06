@@ -213,7 +213,7 @@ void MainWindow::on_buttonSearch_clicked()
                     int b1 = qBlue(img.pixel(i, j));
                     QString rgb=QString::number(r1)+","+ QString::number(g1)+","+QString::number(b1);
                     // записывает в array_rgbAndCount уникальный цвет и
-                    // количество пикселей, которые похожи на него (Евклидова метрика)
+                    // количество пикселей, которые похожи на него (Манхеттенова метрика)
                     count_max=0;
                     if(array_rgbAndCount.count(rgb)==0) {
                         for(int ii=0; ii<img.width(); ii++)
@@ -225,7 +225,7 @@ void MainWindow::on_buttonSearch_clicked()
                                     int g2 = qGreen(img.pixel(ii, jj));
                                     int b2 = qBlue(img.pixel(ii, jj));
 
-                                    if(sqrt(pow(r2-r1,2)+pow(g2-g1,2)+pow(b2-b1,2))<50) count_max++;
+                                    if(abs(r2-r1)+abs(g2-g1)+abs(b2-b1)<50) count_max++;
                                 }
                             }
                         }
